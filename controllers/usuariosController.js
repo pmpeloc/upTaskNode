@@ -42,7 +42,7 @@ exports.crearCuenta = async (req, res, next) => {
         req.flash('correcto', 'Enviamos un correo, confirma tu cuenta');
         res.redirect('/iniciar-sesion');
     } catch (error) {
-        // console.log(error.errors);
+        console.log(error);
         req.flash('error', (error.errors) ? error.errors.map(error => error.message) : 'Error');
         res.render('crearCuenta', {
             mensajes: req.flash(),
