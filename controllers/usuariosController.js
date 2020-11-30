@@ -43,7 +43,7 @@ exports.crearCuenta = async (req, res, next) => {
         res.redirect('/iniciar-sesion');
     } catch (error) {
         // console.log(error.errors);
-        req.flash('error', error.errors.map(error => error.message));
+        req.flash('error', (error.errors) ? error.errors.map(error => error.message) : 'Error');
         res.render('crearCuenta', {
             mensajes: req.flash(),
             nombrePagina: 'Crear Cuenta en UpTask',
